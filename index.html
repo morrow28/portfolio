@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <title>Portfolio</title>
+  <style>
+    body{
+      font-family: georgia;
+    }
+    .sidebar {
+      background: linear-gradient(to bottom, #D6DBDF 10%, #17202A 90%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .nav-link {
+      padding: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block;
+    }
+    .nav-link:hover {
+      background-color: white;
+      color: black;
+    }
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    img{
+      width: 60%;
+      margin-top: -10%;
+    }
+    .card {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cloud-bubble {
+      background-color: #D6DBDF;
+      border-radius: 20px;
+      left: -400px;
+      padding: 10px 20px;
+      max-width: 500px;
+      max-height: 300px;
+      margin: 20px;
+      position: relative;
+    }
+    .cloud-bubble:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 20px solid #D6DBDF;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="sidebar">
+    <router-link to="/" class="nav-link" exact>Home</router-link>
+    <router-link to="/info" class="nav-link">Info</router-link>
+    <router-link to="/hobbies" class="nav-link">Hobbies</router-link>
+    <router-link to="/objective" class="nav-link">Objective</router-link>
+  </div>
+  <div class="content">
+    <router-view></router-view>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+
+<script>
+  const Home = { 
+    template: `
+        <div class="container mt-5 p-5">
+            <h1 class="text-center">Welcome to My Portfolio</h1>
+                <hr>
+            <div class="row">
+                <div class="col-10 text-center">
+                    <img src="jayl.png" class="img-fluid">
+                </div>
+                <div class="col-2 text-center">
+                    <br><br><br><br><br>
+                    <div class="cloud-bubble">
+                        {{ message }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    data() {
+      return {
+        message: 'Hello, I am Jay-l Pogoy'
+      };
+    }
+  };
+
+  const Info = { 
+    template: `
+      <div class="container text-center mt-5">
+        <h2 class="text-center">Personal Information</h2>
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">Name: Jay-l M. Pogoy</p>
+              <p class="card-text">Birthday: June 28, 2002</p>
+              <p class="card-text">Age: 21</p>
+              <p class="card-text">Gender: Male</p>
+              <p class="card-text">Occupation: Student</p>
+              <p class="card-text">Email: pogoygwapo@gmail.com</p>
+            </div>
+          </div>
+      </div>
+    ` 
+  };
+
+  const Hobbies = { 
+    template: `
+      <div class="container mt-5">
+        <h2 class="text-center">My Hobbies</h2>
+          <div class="row g-2 p-5">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                   <h4>Playing Basketball</h4>
+                  <p>Playing basketball is not just a hobby, it's a passion. I love the teamwork and the thrill of the game.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                   <h4>Watching Kdrama</h4>
+                  <p>I enjoy watching K-Dramas for their captivating storylines, interesting characters, and cultural insights.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                   <h4>Playing Online Games</h4>
+                  <p>Playing online games is one of my favorite pastimes, where I can immerse myself in different virtual worlds and challenge my skills.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                   <h4>Watching Boxing</h4>
+                  <p>I enjoy watching boxing matches, admiring the athleticism and strategy involved in the sport</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    ` 
+  };
+
+  const Objective = { 
+    template: `
+      <div class="container mt-5">
+        <h2 class="text-center">Objective</h2>
+          <p> My name is Jay-L M. Pogoy, and I'm known as the joker or clown in our class. Whenever I'm feeling down, I resort to cracking jokes to lift my spirits and bring a smile to my face. It's my way of coping with sadness and finding moments of happiness amidst the challenges. Additionally, I believe laughter can be contagious, so I enjoy spreading joy and lightening the mood for those around me. Laughter not only provides relief from stress but also strengthens bonds between people, fostering a sense of camaraderie and unity. Through humor, I aim to create a positive atmosphere where everyone feels comfortable and uplifted. Whether it's a witty remark during a dull moment or a playful prank to break the tension, I find joy in brightening people's days and creating memorable moments together. </p>
+      </div>
+    ` 
+  };
+
+  const router = new VueRouter({
+    routes: [
+      { path: '/', component: Home },
+      { path: '/info', component: Info },
+      { path: '/hobbies', component: Hobbies },
+      { path: '/objective', component: Objective }
+    ]
+  });
+
+  new Vue({
+    el: '#app',
+    router
+  });
+</script>
+</body>
+</html>
